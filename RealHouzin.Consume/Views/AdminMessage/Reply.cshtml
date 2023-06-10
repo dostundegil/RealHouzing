@@ -1,0 +1,36 @@
+﻿@model mailRequestViewModel
+@{
+    ViewData["Title"] = "Reply";
+    Layout = "~/Views/_AdminLayout/Index.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center bg-primary">
+            <h5 class="mb-0  text-white">Mesaj Gönder</h5>
+        </div>
+        <div class="card-body mt-2">
+            <form method="post" id="messageForm">
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label class="form-label" for="basic-default-fullname">Kime: Mail</label>
+                        <input type="text" readonly asp-for="ReceiverMail" value="@ViewBag.mail" class="form-control" />
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label class="form-label" for="basic-default-fullname">Kime: İsim</label>
+                        <input type="text" readonly asp-for="Name" value="@ViewBag.name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Konu</label>
+                        <input type="text" asp-for="Subject" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Mesaj</label>
+                        <textarea asp-for="Body" class="form-control" rows="10" cols="10" id="basic-default-fullname"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitButton"><span class="tf-icons bx bx-send"></span> Gönder</button>
+                <a href="/AdminMessage/Index/" class="btn btn-danger"><span class="tf-icons bx bx-arrow-back"></span> Vazgeç </a>
+            </form>
+        </div>
+    </div>
+</div>

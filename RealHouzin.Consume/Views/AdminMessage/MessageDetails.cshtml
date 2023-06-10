@@ -1,0 +1,55 @@
+﻿@model MessageViewModel
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/_AdminLayout/Index.cshtml";
+}
+@if(Model.Type=="Gelen Mesajlar"){
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-white bg-primary">Gelen Mesajlar</div>
+        <div class="card-body">
+            <div class="row">
+                    <div class="d-flex justify-content-between mt-2">
+                        Kimden: @Model.Name <i> <small class="opacity-75"> Mail: @Model.Mail <br /> Tarih: @Model.Date.ToString("MMMM dd")</small></i>
+                    </div>
+                <h3 class="mt-2">Mesaj:</h3>
+                <div class="ml-4 bg-secondary rounded">
+                    <p class="m-2 text-white">
+                        
+                    @Model.MessageContent </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4">
+        <a href="/AdminMessage/Reply/@Model.MessageID" class="btn btn-primary"><i class="bx bx-reply" aria-hidden="true"></i>Yanıtla</a>
+        <a href="/AdminMessage/Index/" class="btn btn-danger"><i class="bx bx-arrow-back" aria-hidden="true"></i>Vazgeç</a>
+    </div>
+</div>
+}
+@if (Model.Type == "Gönderilen Mesajlar")
+{
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header text-white bg-primary">Gönderilen Mesajlar</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="d-flex justify-content-between mt-2">
+                        Kime: @Model.Name <i> <small class="opacity-75">Gönderilen Mail: @Model.Mail <br /> Tarih: @Model.Date.ToString("MMMM dd")</small></i>
+                    </div>
+                    <h3 class="mt-2">Mesaj:</h3>
+                    <div class="ml-4 bg-secondary rounded">
+                        <p class="m-2 text-white">
+
+                            @Model.MessageContent
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <a href="/AdminSentMessage/Index/" class="btn btn-danger"><i class="bx bx-arrow-back" aria-hidden="true"></i>Geri Dön</a>
+        </div>
+    </div>
+}
+

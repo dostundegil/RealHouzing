@@ -1,0 +1,115 @@
+﻿@model List<ProductDetailViewModel>
+
+@{
+    ViewData["Title"] = "PropertyDetailc";
+    Layout = "~/Views/_UILayout/Index.cshtml";
+}
+
+
+
+<div class="properties-details-area pt-115 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- pro-details-image -->
+
+                <div class="pro-details-image mb-60">
+                    <div class="pro-details-big-image">
+                        @foreach (var item in Model)
+                        {
+                            int count = 0;
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pro-1" role="tabpanel" aria-labelledby="pro-1-tab">
+                                    <a href="@item.product.coverImageUrl" data-lightbox="image-1" data-title="Sheltek Properties - 1">
+                                        <img style="width:2000px" src="@item.product.coverImageUrl" alt="">
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="pro-4" role="tabpanel" aria-labelledby="pro-4-tab">
+                                    <a href="@item.product.coverImageUrl" data-lightbox="image-1" data-title="Sheltek Properties - 4">
+                                        <img src="@item.product.coverImageUrl" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                                                            <ul class="nav nav-pills pro-details-navs" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pro-1-tab" data-toggle="pill" href="#pro-1" role="tab" aria-controls="pro-1" aria-selected="true"><img src="images/single-property/small/1.jpg" alt=""></a>
+                                    </li>
+                            </ul>
+                            count += 1;
+                            if (count == 1) { break; }
+                        }
+                    </div>
+                </div>
+
+                <!-- pro-details-short-info -->
+                <div class="pro-details-short-info mb-60">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="pro-details-condition">
+                                <h5>Durum</h5>
+                                <div class="pro-details-condition-inner bg-gray">
+                                    @foreach (var item in Model)
+                                    {
+
+                                        int count = 0;
+                                        <ul class="condition-list">
+
+                                            <li><img src="~/sheltek/images/icons/5.png" alt="">@item.product.square m2</li>
+                                            <li><img src="~/sheltek/images/icons/6.png" alt="">Yatak Odası @item.product.bedroomCount</li>
+                                            <li><img src="~/sheltek/images/icons/7.png" alt="">Banyo Sayısı @item.product.bathCount</li>
+                                            <li><img src="~/sheltek/images/icons/13.png" alt="">Garaj 2</li>
+                                            <li><img src="~/sheltek/images/icons/14.png" alt="">Mutfak 2</li>
+                                            <li>@item.product.productPrice ₺</li>
+                                        </ul>
+                                        <p>
+                                            <img src="~/sheltek/images/icons/location.png" alt="">@item.product.address
+                                        </p>
+                                        count += 1;
+                                        if (count == 1) { break; } 
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="pro-details-amenities">
+                                <h5>Özellikler</h5>
+                                <div class="pro-details-amenities-inner bg-gray">
+                                    <ul class="amenities-list">
+                                        @foreach (var item in Model)
+                                        {
+                                            <li>@item.propertyFeatures.name</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- pro-details-description -->
+                <div class="pro-details-description mb-50">
+                    <p>
+                        <span data-placement="top" data-toggle="tooltip" data-original-title="The name you can trust" class="tooltip-content">Sheltek</span> is ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna iqua. Ut
+                        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut quipx ea
+                        codo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolo
+                    </p>
+                    <p>
+                        Sheltek is the Best should be the consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore lore magna iqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex eacm emod tempor incididunt ut
+                        labore lore magna iqua. Ut enim ad minim veniamco laboris nisi ut aliqu
+                    </p>
+                    <p>
+                        Sheltek is the Best should be the consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore lore magna iqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex eacm
+                    </p>
+                </div>
+            </div>
+            @await Component.InvokeAsync("_Feature3Partial")
+        </div>
+    </div>
+</div>
+

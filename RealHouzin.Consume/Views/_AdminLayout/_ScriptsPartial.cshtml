@@ -1,0 +1,40 @@
+﻿<script>
+    document.querySelector("#messageForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Formun normal submit işlemini engelle
+
+        // Form gönderildikten sonra SweetAlert bildirimini görüntüle
+        Swal.fire({
+            title: "Mesaj Gönderilmiştir",
+            text: "Mesajınız başarıyla gönderilmiştir.",
+            icon: "success",
+            showCancelButton: false,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Tamam"
+        }).then((result) => {
+            // SweetAlert bildirimi kapatıldıktan sonra formu gerçekleştir
+            if (result.isConfirmed) {
+                document.querySelector("#submitButton").disabled = true; // Gönderme düğmesini devre dışı bırak
+                document.querySelector("#messageForm").submit(); // Formu gönder
+            }
+        });
+    });
+</script>
+<!-- build:js assets/vendor/js/core.js -->
+<script src="~/AdminPanel/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="~/AdminPanel/assets/vendor/libs/popper/popper.js"></script>
+<script src="~/AdminPanel/assets/vendor/js/bootstrap.js"></script>
+<script src="~/AdminPanel/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="~/AdminPanel/assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+<!-- Vendors JS -->
+<script src="~/AdminPanel/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Main JS -->
+<script src="~/AdminPanel/assets/js/main.js"></script>
+
+<!-- Page JS -->
+<script src="~/AdminPanel/assets/js/dashboards-analytics.js"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>

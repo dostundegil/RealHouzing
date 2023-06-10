@@ -1,0 +1,69 @@
+﻿@model List<_2UpdateProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <h5 class="card-header bg-primary text-white">Mülkler</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fotoğraf</th>
+                        <th>Başlık</th>
+                        <th>Fiyat</th>
+                        <th>İlan Türü</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            @{
+                                count += 1;
+                            }
+                            <td>@count</td>
+                            <td>
+                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                    <li data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-m pull-up"
+                                        title="@item.productTitle">
+                                        <img src="@item.coverImageUrl" alt="Avatar" class="rounded-circle" />
+                                    </li>
+                                </ul>
+                            </td>
+
+                            <td>@item.productTitle</td>
+                            <td>@item.productPrice ₺</td>
+                            <td>@item.productType</td>
+                            
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" onclick="deleteItem('/AdminProduct/DeleteProduct/@item.productID')" href="#"><i class="bx bx-trash me-1 text-danger"></i> Sil</a>
+                                        <a class="dropdown-item" href="/AdminProduct/UpdateProduct/@item.productID"><i class="bx bx-edit-alt me-1 text-warning"></i> Güncelle</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mt-3">
+        <a href="/AdminProduct/AddProduct/" class="btn btn-primary"><span class="tf-icons bx bx-plus-circle"></span>Yeni Mülk</a>
+    </div>
+</div>
+

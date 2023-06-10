@@ -1,0 +1,16 @@
+﻿@model MessageViewModel
+<div class="col-md-7 col-12">
+    <div class="contact-messge contact-bg">
+        <!-- blog-details-reply -->
+        <div class="leave-review">
+            <h5>Leave a Message</h5>
+            <form id="contact-form" method="post">
+                <input type="text" asp-for="Name" placeholder="Adınız">
+                <input type="email" asp-for="Mail" placeholder="Mail Adresiniz">
+                <textarea asp-for="MessageContent" placeholder="Mesajınız"></textarea>
+                <button type="submit" id="btnSubmit" class="submit-btn-1">Gönder</button>
+            </form>
+            <p class="form-messege mb-0"></p>
+        </div>
+    </div>
+</div>

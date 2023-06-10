@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="~/AdminPanel/assets/"
+      data-template="vertical-menu-template-free">
+@await Html.PartialAsync("~/Views/_AdminLayout/_HeadPartial.cshtml")
+
+<body>
+    <script>
+        function deleteItem(itemId) {
+            Swal.fire({
+                title: 'Silmek istediğinden emin misin?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Silme işlemi yapmak için gereken kodu burada yazabilirsin
+                    const deleteUrl = `${itemId}`;
+                    window.location.href = deleteUrl;
+                }
+            });
+        }
+    </script>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+                @await Html.PartialAsync("~/Views/_AdminLayout/_AppBrandDemoPartial.cshtml")
+
+                @await Html.PartialAsync("~/Views/_AdminLayout/_SidebarPartial.cshtml")
+
+            </aside>
+
+            <div class="layout-page">
+
+                @await Html.PartialAsync("~/Views/_AdminLayout/_NavbarPartial.cshtml")
+
+                <div class="content-wrapper">
+
+                    @RenderBody()
+
+                    @await Html.PartialAsync("~/Views/_AdminLayout/_FooterPartial.cshtml")
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
+        </div>
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    @await Html.PartialAsync("~/Views/_AdminLayout/_ScriptsPartial.cshtml")
+
+</body>
+</html>

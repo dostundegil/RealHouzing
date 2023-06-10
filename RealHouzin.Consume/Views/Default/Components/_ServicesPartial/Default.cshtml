@@ -1,0 +1,46 @@
+﻿@model List<ServiceListViewModel>
+<div class="services-area pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title-2 text-center">
+                    <h2>Servislerimiz</h2>
+                    <p>
+                        Servislerimiz kısmında sunduğumuz çeşitli hizmetlerle, 
+                        gayrimenkul ihtiyaçlarınıza kapsamlı çözümler sunuyoruz. Satılık Konutlar
+                        hizmetimizde, geniş bir konut portföyüyle sizin için mükemmel bir ev 
+                        bulmanıza yardımcı oluyoruz. Ev Alma hizmetimizde, isteklerinize 
+                        uygun özelliklere sahip konutları keşfetmenizi sağlayarak, hayal 
+                        ettiğiniz evin sahibi olmanızı destekliyoruz. Ev Kiralama hizmetimizde, 
+                        geniş kiralık konut seçenekleriyle size konforlu bir yaşam alanı sunarak, 
+                        kiralık ev ihtiyaçlarınızı karşılıyoruz. Ayrıca, Mülkiyet Yönetimi 
+                        hizmetimizle, gayrimenkul sahiplerine mülklerinin profesyonel yönetimini 
+                        sağlayarak, onlara huzur ve gelir optimizasyonu sunuyoruz.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="service-carousel">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col">
+                            <div class="service-item">
+                                <div class="service-item-image">
+                                    <a href="service-details.html"><img src="@item.ServiceImage" alt=""></a>
+                                </div>
+                                <div class="service-item-info">
+                                    <h5><a href="service-details.html">@item.ServiceTitle</a></h5>
+                                    <p>
+                                         @item.ServiceDescription
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

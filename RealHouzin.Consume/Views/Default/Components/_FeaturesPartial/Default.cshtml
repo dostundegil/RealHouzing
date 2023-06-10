@@ -1,0 +1,33 @@
+﻿@model List<FeatuesListViewModel>
+<div class="features-area fix">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-5">
+                <div class="features-info bg-gray">
+                    <div class="section-title mb-30">
+                        <h3>İŞTE BURADA</h3>
+                        <h2 class="h1">MÜKEMMEL ÖZELLİKLER</h2>
+                    </div>
+                    <div class="features-desc">
+                        <p>
+                            <span data-placement="top" data-toggle="tooltip" data-original-title="The name you can trust" class="tooltip-content">Sheltek</span> ile mükemmel özelliklere sahip konutları keşfedin, hayalinizdeki yaşamı gerçeğe dönüştürün. Geniş iç mekanlar, modern tasarımlar ve çağdaş donanımlarla konforlu bir yaşam sizi bekliyor. Seçkin konumlarıyla dikkat çeken konutlarımız, güzel manzaralar ve kolay ulaşım imkanları sunarak yaşamınıza ayrıcalık katıyor.
+                        </p>
+                    </div>
+                    <div class="features-include">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                            <div class="col-xl-4 col-lg-6 col-md-4">
+                                <div class="features-include-list">
+                                    <h6><img src="@item.FeatuesImage" alt="">@item.FeatuesTitle</h6>
+                                    <p>@item.FeatuesContent</p>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

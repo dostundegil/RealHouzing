@@ -1,0 +1,52 @@
+﻿@model List<MessageViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <h5 class="card-header bg-primary text-white">Gönderilen Mesajlar</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ad Soyad</th>
+                        <th>Mail</th>
+                        <th>Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            @{
+                                count += 1;
+                            }
+                            <td>@count</td>
+
+                            <td>@item.Name</td>
+                            <td>@item.Mail</td>
+                            <td>@item.Date.ToString("MMMM dd")</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" onclick="deleteItem('/AdminMessage/DeleteMessage/@item.MessageID')" href="#"><i class="bx bx-trash me-1 text-danger"></i> Sil</a>
+                                        <a class="dropdown-item" href="/AdminMessage/MessageDetails/@item.MessageID"><i class="bx bx-detail me-1 text-warning"></i> Detayları Gör</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,62 @@
+﻿@{
+    var features = ViewBag.v as List<ProductListViewModel>;
+    int count = 0;
+}
+<div class="col-lg-4">
+    <!-- widget-search-property -->
+    <!-- widget-featured-property -->
+    <aside class="widget widget-featured-property mb-30">
+        <h5>Öne Çıkan Mülkler</h5>
+        <div class="row">
+            @foreach (var item in features)
+            {
+                if (count == 3)
+                {
+                    break;
+                }
+            <div class="col-lg-12 col-md-6 col-12">
+                <div class="flat-item">
+                    <div class="flat-item-image">
+                            @if (item.productType == "Satılık")
+                            {
+                                <span class="for-sale">Satılık</span>
+                            }
+                            @if (item.productType == "Satılık/Kiralık")
+                            {
+                                <span class="for-sale rent">Satılık/Kiralık</span>
+                            }
+                        <a href="/Default/PropertyDetailc/@item.productID"><img src="@item.coverImageUrl   " alt=""></a>
+                        <div class="flat-link">
+                                <a href="/Default/PropertyDetailc/@item.productID">Detaylar</a>
+                        </div>
+                        <ul class="flat-desc">
+                            <li>
+                                    <img src="~/sheltek/images/icons/4.png" alt="">
+                                <span>@item.square m2</span>
+                            </li>
+                            <li>
+                                    <img src="~/sheltek/images/icons/5.png" alt="">
+                                <span>@item.bedroomCount</span>
+                            </li>
+                            <li>
+                                    <img src="~/sheltek/images/icons/6.png" alt="">
+                                <span>@item.bathCount</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flat-item-info">
+                        <div class="flat-title-price">
+                            <h5><a href="#">@item.productTitle </a></h5>
+                            <span class="price">@item.productPrice ₺</span>
+                        </div>
+                        <p>
+                                <img src="~/sheltek/images/icons/location.png" alt="">@item.address
+                        </p>
+                    </div>
+                </div>
+                </div>
+                count += 1;
+            }
+        </div>
+    </aside>
+</div>

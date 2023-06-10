@@ -1,0 +1,50 @@
+﻿@model List<UpdateFeatuesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <h5 class="card-header bg-primary text-white">Özellikler</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @{
+                                count += 1;
+                            }
+                            <td>@count</td>
+
+                            <td>@item.FeatuesTitle</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" onclick="deleteItem('/AdminFeatues/DeleteFeature/@item.FeatuesID')" href="#"><i class="bx bx-trash me-1 text-danger"></i> Sil</a>
+                                        <a class="dropdown-item" href="/AdminFeatues/UpdateFeature/@item.FeatuesID"><i class="bx bx-edit-alt me-1 text-warning"></i> Güncelle</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mt-3">
+        <a href="/AdminFeatues/AddFeature/" class="btn btn-primary"><span class="tf-icons bx bx-plus-circle"></span>Yeni Özellik</a>
+    </div>
+</div>

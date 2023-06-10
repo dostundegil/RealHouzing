@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_UILayout/Index.cshtml";
+}
+
+<div class="wrapper">
+
+@await Component.InvokeAsync("_SliderPartial")
+
+    <section id="page-content" class="page-wrapper">
+
+        @await Component.InvokeAsync("_AboutPartial")
+
+         @await Component.InvokeAsync("_ServicesPartial")
+
+        @await Component.InvokeAsync("_CallUsPartial")
+        
+        @await Component.InvokeAsync("_FeaturedPropertyPartial")
+        
+        @await Component.InvokeAsync("_FeaturesPartial")
+
+        @await Component.InvokeAsync("_OurAgentsPartial")
+
+        @await Component.InvokeAsync("_TestimonialsPartial")
+        
+    </section>
+
+</div>

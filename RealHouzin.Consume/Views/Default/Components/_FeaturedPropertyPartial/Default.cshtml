@@ -1,0 +1,70 @@
+﻿@model List<ProductListViewModel>
+<div class="featured-flat-area pt-115 pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title-2 text-center">
+                    <h2>Öne Çıkan Evler</h2>
+                    <p>
+                        Bu seçkin konutlar, modern mimariyle birleşen lüks detaylara sahip olup
+                        yaşam kalitesini en üst düzeye çıkarmayı hedeflemektedir. Geniş iç
+                        mekanlar, çağdaş donanımlar ve doğal ışığın mükemmel kullanımı, bu
+                        evleri gerçek bir yaşam deneyimine dönüştürmektedir. Her biri dikkatle
+                        seçilmiş olan bu özel evler, konumlarıyla da dikkat çekmekte ve kusursuz
+                        bir yaşam tarzının kapılarını aralamaktadır. Öne Çıkan Evler, çağdaş
+                        konforun, mükemmel tasarımın ve unutulmaz bir yaşamın bir araya geldiği
+                        adreslerdir. Sınırlı sayıdaki bu konutlar, seçkin bir yaşam arayanların
+                        beklentilerini aşacak niteliktedir.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="featured-flat">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                @if (item.productType == "Satılık")
+                                {
+                                    <span class="for-sale">Satılık</span>
+                                }
+                                @if (item.productType == "Satılık/Kiralık")
+                                {
+                                    <span class="for-sale rent">Satılık/Kiralık</span>
+                                }
+
+                                <a href="/Default/PropertyDetailc/@item.productID"><img src="@item.coverImageUrl" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="/Default/PropertyDetailc/@item.productID">Detaylar</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="~/sheltek/images/icons/4.png" alt="">
+                                        <span>@item.square m2</span>
+                                    </li>
+                                    <li>
+                                        <img src="~/sheltek/images/icons/5.png" alt="">
+                                        <span>@item.bedroomCount</span>
+                                    </li>
+                                    <li>
+                                        <img src="~/sheltek/images/icons/6.png" alt="">
+                                        <span>@item.bathCount</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">@item.productTitle </a></h5>
+                                    <span class="price">@item.productPrice ₺</span>
+                                </div>
+                                <p><img src="~/sheltek/images/icons/location.png" alt="">@item.address</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿    <!-- jquery latest version -->
+<script src="~/sheltek/js/vendor/jquery-3.1.1.min.js"></script>
+<!-- Bootstrap framework js -->
+<script src="~/sheltek/js/bootstrap.min.js"></script>
+<!-- Nivo slider js -->
+<script src="~/sheltek/lib/js/jquery.nivo.slider.js"></script>
+<!-- ajax-mail js -->
+<script src="~/sheltek/js/ajax-mail.js"></script>
+<!-- All js plugins included in this file. -->
+<script src="~/sheltek/js/plugins.js"></script>
+<!-- Main js file that contents all jQuery plugins activation. -->
+<script src="~/sheltek/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Gönder butonu tıklanınca işlemi gerçekleştir
+    document.getElementById('btnSubmit').addEventListener('click', function () {
+        // AJAX isteği veya form gönderme işlemleri burada yapılabilir
+
+        // SweetAlert mesajı göster
+        Swal.fire({
+            icon: 'success',
+            title: 'Mesajınız Gönderildi!',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    });
+</script>

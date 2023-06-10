@@ -1,0 +1,100 @@
+﻿@model _2UpdateProductViewModel
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/_AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <h5 class="card-header">Mülk Ekle</h5>
+                    <!-- Account -->
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="firstName" class="form-label">Başlık</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="firstName"
+                                           asp-for="productTitle"
+                                           autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="firstName" class="form-label">Fiyat</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="firstName"
+                                           asp-for="productPrice"
+                                           autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="firstName" class="form-label">Adres</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="firstName"
+                                           asp-for="address"
+                                           autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="email" class="form-label">Fotoğraf Yolu</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           asp-for="coverImageUrl" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="firstName" class="form-label">Yatak Odası Sayısı</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="firstName"
+                                           asp-for="bedroomCount"
+                                           autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="email" class="form-label">Banyo Sayısı</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           asp-for="bathCount"
+                                            />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="email" class="form-label">m2</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           asp-for="square"
+                                            />
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="listingType" class="form-label">İlan Türü</label>
+                                    <select class="form-control" id="listingType" asp-for="productType">
+                                        <option value="Satılık">Satılık</option>
+                                        <option value="Kiralık">Kiralık</option>
+                                        <option value="Satılık/Kiralık">Satılık/Kiralık</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="listingType" class="form-label">Kategori</label>
+                                    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v, new {@class="form-control"})
+                                </div>
+                                <div class="mt-2">
+                                    <button type="submit" class="btn btn-primary me-2"><span class="tf-icons bx bx-plus-circle"></span>Ekle</button>
+                                    <a href="/AdminProduct/Index/" class="btn btn-danger"><span class="tf-icons bx bx-arrow-back"></span> Vazgeç </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-backdrop fade"></div>
+</div>
+
+

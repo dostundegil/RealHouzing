@@ -1,0 +1,62 @@
+﻿@model List<AgentListViewModel>
+<div class="our-agents-area pt-115 pb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title-2 text-center">
+                    <h2>TAKIMIMIZ</h2>
+                    <p>
+                        Bu profesyonel ekip, size konut arama sürecinde rehberlik edecek,
+                        ihtiyaçlarınıza uygun evleri bulmanızda yardımcı olacak ve gayrimenkul
+                        danışmanlığı konusunda size destek sağlayacaktır. Sheltek'in
+                        güvenilir ve yetenekli Agents ekibi, size en iyi hizmeti sunmak için burada.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="our-agents">
+            <div class="row">
+                <div class="col-12">
+                    <div class="agents-carousel">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col">
+                                <div class="single-agent">
+                                    <div class="agent-image">
+                                        <img src="@item.AgentImage" alt="">
+                                    </div>
+                                    <div class="agent-info">
+                                        <div class="agent-name">
+                                            <h5><a href="agent-details.html">@item.AgentName</a></h5>
+                                            <p>@item.AgentTitle</p>
+                                        </div>
+                                    </div>
+                                    <div class="agent-info-hover">
+                                        <div class="agent-name">
+                                            <h5><a href="agent-details.html">@item.AgentName</a></h5>
+                                            <p>@item.AgentTitle</p>
+                                        </div>
+                                        <ul class="agent-address">
+                                            <li><img src="~/sheltek/images/icons/phone-2.png" alt="">@item.AgentPhone </li>
+                                            <li>
+                                                <img src="~/sheltek/images/icons/mail-close.png" alt="">@item.AgentMail
+                                            </li>
+                                        </ul>
+                                        <ul class="social-media">
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
