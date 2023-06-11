@@ -12,13 +12,16 @@ A .NET CORE 6.0 API and API Consume - RealHouzing Real Estate Project which util
       <a href="#about">About</a>
     </li>
     <li>
+      <a href="#used">Used</a>
+    </li>
+    <li>
       <a href="#home">Home Page</a>
     </li>
         <li>
-      <a href="#register--login">Register & Login</a>
+      <a href="#api-layer">API Layer</a>
     </li>
         <li>
-      <a href="#user-panel">User Panel</a>
+      <a href="#user-panel">API Consume</a>
     </li>
         <li>
       <a href="#admin-panel">Admin Panel</a>
